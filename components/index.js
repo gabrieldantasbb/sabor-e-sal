@@ -4,6 +4,7 @@ import AddedRecently from "./AddedRecently"
 import TemperosAlhoeSal from "./TemperosAlhoeSal"
 import TemperosSeco from "./TemperosSeco"
 import Footer from "./Footer"
+import Swiper from "./Swiper"
 
 export {
     Header,
@@ -11,5 +12,6 @@ export {
     AddedRecently,
     TemperosAlhoeSal,
     TemperosSeco,
-    Footer
+    Footer,
+    Swiper
 }

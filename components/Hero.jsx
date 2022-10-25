@@ -4,10 +4,10 @@ import { spices_banner, bubble_banner } from "../assets"
 
 const Hero = () => {
   return (
-    <section className="flex flex-col-reverse sm:flex-row max-w-[1028px] mx-auto py-2 my-12">
+    <section className="flex flex-col-reverse sm:flex-row max-w-[1028px] mx-auto py-2 mt-6">
       <div className="flex-col z-0 mb-9">
         <div>
-          <h1 className="font-poppins font-bold text-6xl sm:text-7xl sm:leading-[108px] max-w-xl sm:mb-0 mb-3">Sua vida com mais sabor</h1>
+          <h1 className="font-poppins font-bold text-5xl sm:text-7xl sm:leading-[108px] max-w-xl sm:mb-0 mb-3">Sua vida com mais sabor</h1>
         </div>
         <div className="mb-4">
           <p className="font-poppins font-regular text-sm font-gray sm:leading-6 max-w-sm">

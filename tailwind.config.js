@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       colors: {
         orange: "#E28531",
-        gray: "9F9F9F",
+        grey: "#9F9F9F",
+        lightBlue: "#31C3E0",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
