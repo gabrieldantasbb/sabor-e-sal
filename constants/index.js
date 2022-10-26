@@ -32,26 +32,36 @@ export const temperos = [
         id:"1",
         title:"Tempero Alho e Sal",
         img: temperoAlhoeSel,
+        peso: "300g",
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
         id:"2",
         title:"Tempero Açafrão com Pimentão Vermelho",
         img: temperoAcafraoPimentao,
+        peso: "300g",
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
         id:"3",
         title:"Tempero Baiano",
         img: temperoBaiano,
+        peso: "300g",
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
         id:"4",
         title:"Tempero Chimichurri",
         img: temperoChimichurri,
+        peso: "300g",
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
     {
         id:"5",
-        title:"Tempero Artesanal Alho e Sal",
+        title:"Tempero Cheiro Verde",
         img: temperoCheiroVerde,
+        peso: "300g",
+        description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     },
 
 ]

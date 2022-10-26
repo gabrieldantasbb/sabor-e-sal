@@ -7,7 +7,7 @@ const Header = () => {
   const [toggle, setToggle] = useState(true);
 
   return (
-    <section className="flex w-full justify-between max-w-[1028px] mr-auto ml-auto py-2 relative mt-6">
+    <section className="flex w-full justify-between max-w-[1028px] mx-auto py-2 sm:px-0 px-8 relative mt-6">
       <div className="flex flex-col-reverse">
         <div className="flex">
           <h1 className="font-poppins font-bold text-2xl">Sabor e Sal</h1>
