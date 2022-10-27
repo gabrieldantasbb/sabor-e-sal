@@ -7,11 +7,11 @@ import { temperos } from "../constants";
 
 const AddedRecently = () => {
   return (
-    <section className={`${styles.section} flex flex-col`}>
+    <section className={`flex flex-col max-w-[1028px] mx-auto py-2 mt-6`}>
       <div className="w-full flex sm:items-end sm:flex-row flex-col justify-between">
         <div className="flex">
           <h1
-            className={`font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px]`}
+            className="font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px]"
           >
             Adicionados recentemente
           </h1>
@@ -25,7 +25,7 @@ const AddedRecently = () => {
       <div className="hidden sm:flex">
         <Swiper />
       </div>
-      <div className="flex sm:hidden grid grid-cols-2 gap-4 mt-4">
+      <div className="sm:hidden grid grid-cols-2 gap-4 mt-4">
         {temperos.map((nav, index) => (
           <div
             key={index}

@@ -6,7 +6,7 @@ const layout = ({ children }) => {
     <>
       <Header />
       <main>{children}</main>
-      <Footer />
+      <Footer className="bottom-0"/>
     </>
   );
 };

@@ -5,47 +5,27 @@
 @tailwind utilities;
 
 a {
-  color: inherit;
+  color: white;
   text-decoration: none;
+
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: #404040;
 }
 
 #app { height: 100% }
 html,
 body {
+  display: grid;
   position: relative;
-  height: 100%;
-}
-
-body {
+  height: 100vh;
 }
 
 .swiper {
   width: 100%;
   height: 100%;
 }
-
-.swiper-slide {
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-

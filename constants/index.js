@@ -34,6 +34,7 @@ export const temperos = [
         img: temperoAlhoeSel,
         peso: "300g",
         description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        preco: "13,90",
     },
     {
         id:"2",
@@ -41,6 +42,7 @@ export const temperos = [
         img: temperoAcafraoPimentao,
         peso: "300g",
         description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        preco: "13,90",
     },
     {
         id:"3",
@@ -48,6 +50,7 @@ export const temperos = [
         img: temperoBaiano,
         peso: "300g",
         description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        preco: "13,90",
     },
     {
         id:"4",
@@ -55,6 +58,7 @@ export const temperos = [
         img: temperoChimichurri,
         peso: "300g",
         description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        preco: "13,90",
     },
     {
         id:"5",
@@ -62,6 +66,7 @@ export const temperos = [
         img: temperoCheiroVerde,
         peso: "300g",
         description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        preco: "13,90",
     },
 
 ]

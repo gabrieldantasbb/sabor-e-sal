@@ -7,7 +7,7 @@ const Header = () => {
   const [toggle, setToggle] = useState(true);
 
   return (
-    <section className="flex w-full justify-between max-w-[1028px] mx-auto py-2 sm:px-0 px-8 relative mt-6">
+    <section className="flex w-full justify-between max-w-[1028px] mx-auto py-2 pt-6 sm:px-0 px-4 relative">
       <div className="flex flex-col-reverse">
         <div className="flex">
           <h1 className="font-poppins font-bold text-2xl">Sabor e Sal</h1>
@@ -19,7 +19,7 @@ const Header = () => {
           </h2>
         </div>
       </div>
-      <div className="sm:hidden">
+      <div className="sm:hidden flex justify-end">
         <Image
           src={toggle ? menu : close}
           onClick={() => setToggle(!toggle)}
@@ -38,7 +38,7 @@ const Header = () => {
             >
               <a
               href=""
-              className="font-poppins font-medium text-sm"
+              className="font-poppins font-medium text-sm text-[#404040]"
               >
                 {nav.title}
               </a>
@@ -47,7 +47,7 @@ const Header = () => {
           }
         </ul>
       </div>
-      <div className={`sm:hidden ${!toggle ? "flex" : "hidden"} absolute z-30 right-0 top-16 bg-orange rounded-2xl`}>
+      <div className={`sm:hidden ${!toggle ? "flex" : "hidden"} absolute z-30 right-4 top-20 bg-orange rounded-2xl`}>
       <ul className="flex-co font-poppins font-medium text-white p-5">
       {
           navLinks.map((nav, index) => (
