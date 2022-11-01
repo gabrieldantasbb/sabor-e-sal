@@ -22,7 +22,7 @@ export default {
         title: 'Slug',
         type: 'slug',
         options: {
-          source: 'name',
+          source: 'artesanalName',
           maxLength: 90,
         }
       },
@@ -37,6 +37,12 @@ export default {
       {
         name: "preco",
         title: "Preço",
+        type: "number",
+        validation: Rule => Rule.required()
+      },
+      {
+        name: "peso",
+        title: "peso",
         type: "number",
         validation: Rule => Rule.required()
       }
