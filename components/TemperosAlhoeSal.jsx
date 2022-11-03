@@ -2,25 +2,27 @@ import React from "react";
 import styles from "../styles/style";
 import { temperos } from "../constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const TemperosAlhoeSal = () => {
   return (
     <section className={`${styles.section} pt-8 flex flex-col`}>
       <div className="w-full flex sm:flex-row sm:items-end flex-col justify-between">
+        <Link href="/temperos-artesanais">
         <div className="flex">
           <h1
-            className={`font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px] max-w-[500px]`}
+            className={`font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px] max-w-[500px] cursor-pointer`}
           >
-            Temperos secos todo tipo de preparo
+            Os artesanais a base de alho e sal
           </h1>
         </div>
+        </Link>
         <div className="flex">
           <p
             className={`${styles.paragraph} max-w-md h-[100%] sm:text-lg mt-2`}
           >
-            Os temperos secos são ótimas opções para temperar uma salada, dar
-            aquele toque especial de sabor e sal em qualquer preparo de carnes.
-            Além de um especial sal temperado para churrasco.
+            A facilidade do tempero caseiro artesanal a base de alho como
+            pioneiro da culinária mundial.
           </p>
         </div>
       </div>

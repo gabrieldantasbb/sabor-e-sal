@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@sanity/client": "^3.4.1",
+    "@sanity/image-url": "^1.0.1",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
+    "react-query": "^3.39.2",
     "swiper": "^8.4.4"
   },
   "devDependencies": {

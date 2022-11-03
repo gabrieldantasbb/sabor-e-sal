@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { spices_banner, bubble_banner } from "../assets"
 
@@ -16,7 +17,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex justify-center sm:justify-start">
-          <button className="bg-orange rounded-xl px-7 py-2 text-white font-poppins font-medium drop-shadow-2xl">Nossos Produtos</button>
+          <Link href="/temperos-artesanais"><button className="bg-orange rounded-xl px-7 py-2 text-white font-poppins font-medium drop-shadow-2xl">Nossos Produtos</button></Link>
         </div>
       </div>
       <div className="flex relative justify-center">

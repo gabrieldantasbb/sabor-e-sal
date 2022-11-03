@@ -2,13 +2,15 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { menu, close} from "../assets";
 import { navLinks } from "../constants";
+import Link from "next/link";
 
 const Header = () => {
   const [toggle, setToggle] = useState(true);
 
   return (
     <section className="flex w-full justify-between max-w-[1028px] mx-auto py-2 pt-6 sm:px-0 px-4 relative">
-      <div className="flex flex-col-reverse">
+      <Link href="/">
+      <div className="flex flex-col-reverse cursor-pointer">
         <div className="flex">
           <h1 className="font-poppins font-bold text-2xl">Sabor e Sal</h1>
           <h1 className="text-orange font-bold text-2xl">.</h1>
@@ -19,6 +21,7 @@ const Header = () => {
           </h2>
         </div>
       </div>
+      </Link>
       <div className="sm:hidden flex justify-end">
         <Image
           src={toggle ? menu : close}
@@ -36,31 +39,30 @@ const Header = () => {
             key={nav.id}
             className={`${index === navLinks.length - 1 ? "mr-0" : "mr-10" }`}
             >
-              <a
-              href=""
-              className="font-poppins font-medium text-sm text-[#404040]"
+              <Link
+              href={`/${nav.link}`}
               >
-                {nav.title}
-              </a>
+                <p className="font-poppins font-medium text-sm text-[#404040] cursor-pointer">{nav.title}</p>
+              </Link>
             </li>
           ))
           }
         </ul>
       </div>
       <div className={`sm:hidden ${!toggle ? "flex" : "hidden"} absolute z-30 right-4 top-20 bg-orange rounded-2xl`}>
-      <ul className="flex-co font-poppins font-medium text-white p-5">
+      <ul className="flex-co font-poppins font-medium  p-5">
       {
           navLinks.map((nav, index) => (
             <li 
             key={nav.id}
             className={`${index === navLinks.length - 1 ? "mb-0" : "mb-3" }`}
             >
-              <a
-              href=""
-              className="font-poppins font-medium text-sm"
+              <Link
+              href={`/${nav.link}`}
               >
-                {nav.title}
-              </a>
+              <p className="font-poppins font-medium text-sm text-white cursor-pointer">{nav.title}</p>
+                
+              </Link>
             </li>
           ))
           }

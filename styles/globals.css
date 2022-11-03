@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 a {
-  color: white;
   text-decoration: none;
-
 }
 
 * {
