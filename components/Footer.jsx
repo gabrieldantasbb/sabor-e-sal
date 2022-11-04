@@ -2,6 +2,10 @@ import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
+
+  function redirect() {
+     location.replace('https://api.whatsapp.com/send?phone=5521974521767&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20temperos%20Sabor%20e%20Sal.')
+  }
   return (
     <section className="bg-orange text-white flex sm:flex-row flex-col sm:px-[75px] py-[60px] items-center justify-center sm:gap-[300px] mt-11">
       <div className="grow-1 text-white ">
@@ -19,7 +23,9 @@ const Footer = () => {
       </div>
       </Link>
         <div className="mt-5">
-          <button className="py-2 px-6 border-solid border-2 border-white font-poppins semi-bold sm:text-[16px] text-white">FALE CONOSCO</button>
+          <div className=" cursor-pointer py-2 px-6 border-solid border-2 border-white font-poppins semi-bold sm:text-[16px] text-white">
+          <a href="https://api.whatsapp.com/send?phone=5521974521767&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20temperos%20Sabor%20e%20Sal." rel="noreferrer">FALE CONOSCO</a>
+          </div>
         </div>
       </div>
       <div className="font-poppins font-semibold text-[14px] leading-8 grid gap-6 mt-5 text-white ">

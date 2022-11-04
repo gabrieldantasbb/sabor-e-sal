@@ -2,10 +2,20 @@ import React from "react";
 import Image from "next/image";
 import styles from "../styles/style";
 import Swiper from "./Swiper";
-
 import { temperos } from "../constants";
 
+import { useQuery } from "react-query"
+import { imageUrlBuilder, sanity } from "../lib/client"
+
+const query = `
+  *[ _type == 'tempArts' ] { artesanalName, artesanalDesc, slug, artesanalImage, preco, peso }
+`;
+
+
 const AddedRecently = () => {
+
+  const { data: temp } = useQuery('temps', () => sanity.fetch(query));
+
   return (
     <section className={`flex flex-col max-w-[1028px] mx-auto py-2 mt-6`}>
       <div className="w-full flex sm:items-end sm:flex-row flex-col justify-between">
@@ -26,23 +36,23 @@ const AddedRecently = () => {
         <Swiper />
       </div>
       <div className="sm:hidden grid grid-cols-2 gap-4 mt-4">
-        {temperos.map((nav, index) => (
+        {temp.map(({ artesanalName, artesanalDesc, slug, artesanalImage, preco, peso }) => (
           <div
-            key={index}
+            key={artesanalName}
             className="w-full flex flex-col py-5 px-4 rounded-xl bg-white drop-shadow-xl"
           >
             <div className="flex bg-[#ECECEC] rounded-xl">
-              <Image height={200} width={200} src={nav.img} alt={nav.title} />
+                
             </div>
             <div className="w-full flex flex-col px-1">
               <div className="mt-4">
                 <h1 className="font-poppins font-bold text-xs min-h-[56px]">
-                  {nav.title}
+                  {artesanalName}
                 </h1>
               </div>
               <div className="flex">
                 <p className="font-inter font-semibold text-grey text-[11px]">
-                  Peso: {nav.peso}
+                  Peso: {peso}
                 </p>
               </div>
               <div className="flex justify-end align-bottom mt-2">
