@@ -4,18 +4,31 @@ import { temperos } from "../constants";
 import styles from "../styles/style";
 import Link from "next/link";
 
+import { sanity, imageUrlBuilder } from "../lib/sanity";
+import { useQuery } from "react-query";
+
+const query = `
+*[ _typer == 'tempSeco'] { secoName, secoDesc, secoImage, preco }
+`;
+
 const TemperosSeco = () => {
+  const { data: temps } = useQuery("tempList", () => sanity.fetch(query));
+
+  if (!temps) {
+    return <h1>Loading…</h1>;
+  }
+
   return (
     <section className={`${styles.section} pt-8 flex flex-col`}>
       <div className="w-full flex sm:flex-row sm:items-end flex-col justify-between">
         <Link href="/temperos-secos">
-        <div className="flex">
-          <h1
-            className={`font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px] max-w-[500px] cursor-pointer`}
-          >
-            Temperos secos todo tipo de preparo
-          </h1>
-        </div>
+          <div className="flex">
+            <h1
+              className={`font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px] max-w-[500px] cursor-pointer`}
+            >
+              Temperos secos todo tipo de preparo
+            </h1>
+          </div>
         </Link>
         <div className="flex">
           <p
@@ -28,23 +41,27 @@ const TemperosSeco = () => {
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 mt-6">
-        {temperos.map((nav, index) => (
+        {temps.map(({ secoName, secoDesc, secoImage, preco }) => (
           <div
-            key={index}
+            key={secoName}
             className="w-[100%] rounded-lg bg-[#EAEAEA] flex flex-col sm:flex-row p-4 sm:p-7 items-center"
           >
             <div className="">
-              <Image src={nav.img} height={200} width={200} />
+              <img
+                src={imageUrlBuilder.image(secoImage)}
+                height={200}
+                width={200}
+              />
             </div>
             <div className="p-2 sm:ml-9 justify-center">
               <div>
                 <h1 className="font-poppins font-semibold text-lg ">
-                  {nav.title}
+                  {secoName}
                 </h1>
               </div>
               <div className="mt-2">
                 <p className="font-poppins text-[14px] max-w-[450px]">
-                  {nav.description}
+                  {secoDesc}
                 </p>
               </div>
               <div className="flex items-end justify-between">
@@ -55,7 +72,7 @@ const TemperosSeco = () => {
                 </div>
                 <div className="mt-4">
                   <h2 className="font-poppins text-orange text-4xl font-bold">
-                    R$ 13,00
+                    R$ {preco}0
                   </h2>
                 </div>
               </div>

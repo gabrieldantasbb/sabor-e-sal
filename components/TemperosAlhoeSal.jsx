@@ -1,10 +1,19 @@
 import React from "react";
 import styles from "../styles/style";
-import { temperos } from "../constants";
-import Image from "next/image";
 import Link from "next/link";
+import { sanity, imageUrlBuilder } from "../lib/sanity"
+import { useQuery } from "react-query";
+
+  const query = `
+    *[ _type == 'tempArts'] { artesanalName, artesanalDesc, preco, artesanalImage }
+  `;
 
 const TemperosAlhoeSal = () => {
+  const { data : temps } = useQuery('tempsList', () => sanity.fetch(query))
+
+  if (!temps) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <section className={`${styles.section} pt-8 flex flex-col`}>
       <div className="w-full flex sm:flex-row sm:items-end flex-col justify-between">
@@ -27,28 +36,29 @@ const TemperosAlhoeSal = () => {
         </div>
       </div>
       <div className="grid gap-4 mt-6">
-        {temperos.map((nav, index) => (
+        {temps.map(({ artesanalName, artesanalDesc, preco, artesanalImage }) => 
+        (
           <div
-            key={index}
+            key={artesanalName}
             className="w-[100%] rounded-lg bg-[#EAEAEA] flex flex-col sm:flex-row p-4 sm:p-9 items-center justify-center"
           >
-            <div className="">
-              <Image src={nav.img} height={200} width={200} />
+            <div className="h-[200px] w-[200px]">
+            <img src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} alt={artesanalName} />
             </div>
             <div className="p-2 sm:ml-9 justify-center">
               <div>
                 <h1 className="font-poppins font-semibold text-lg ">
-                  {nav.title}
+                  {artesanalName}
                 </h1>
               </div>
               <div className="mt-2">
                 <p className="font-poppins text-[14px] max-w-[450px]">
-                  {nav.description}
+                  {artesanalDesc}
                 </p>
               </div>
               <div className="mt-4">
                 <h2 className="font-poppins text-orange text-4xl font-bold">
-                  R$ 13,00
+                  R$ {preco}0
                 </h2>
               </div>
             </div>

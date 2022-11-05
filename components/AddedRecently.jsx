@@ -2,19 +2,21 @@ import React from "react";
 import Image from "next/image";
 import styles from "../styles/style";
 import Swiper from "./Swiper";
-import { temperos } from "../constants";
-
 import { useQuery } from "react-query"
-import { imageUrlBuilder, sanity } from "../lib/client"
+import { imageUrlBuilder, sanity } from "../lib/sanity"
 
 const query = `
-  *[ _type == 'tempArts' ] { artesanalName, artesanalDesc, slug, artesanalImage, preco, peso }
+  *[ _type == 'tempArts' ] { artesanalName, artesanalImage, peso, slug }
 `;
 
 
 const AddedRecently = () => {
 
-  const { data: temp } = useQuery('temps', () => sanity.fetch(query));
+  const { data : temps } = useQuery('tempsList', () => sanity.fetch(query))
+
+  if (!temps) {
+    return <h1>Loading…</h1>;
+  }
 
   return (
     <section className={`flex flex-col max-w-[1028px] mx-auto py-2 mt-6`}>
@@ -36,13 +38,14 @@ const AddedRecently = () => {
         <Swiper />
       </div>
       <div className="sm:hidden grid grid-cols-2 gap-4 mt-4">
-        {temp.map(({ artesanalName, artesanalDesc, slug, artesanalImage, preco, peso }) => (
+        {temps.map(({artesanalName, artesanalImage, peso, slug }) =>
+        (
           <div
             key={artesanalName}
             className="w-full flex flex-col py-5 px-4 rounded-xl bg-white drop-shadow-xl"
           >
             <div className="flex bg-[#ECECEC] rounded-xl">
-                
+              <img src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} />
             </div>
             <div className="w-full flex flex-col px-1">
               <div className="mt-4">
@@ -52,7 +55,7 @@ const AddedRecently = () => {
               </div>
               <div className="flex">
                 <p className="font-inter font-semibold text-grey text-[11px]">
-                  Peso: {peso}
+                  Peso:{peso}
                 </p>
               </div>
               <div className="flex justify-end align-bottom mt-2">
@@ -62,7 +65,7 @@ const AddedRecently = () => {
               </div>
             </div>
           </div>
-        ))}
+          ))}
       </div>
     </section>
   );
