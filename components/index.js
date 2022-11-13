@@ -2,7 +2,7 @@ import Header from "./Header"
 import Hero from "./Hero"
 import AddedRecently from "./AddedRecently"
 import TemperosAlhoeSal from "./TemperosAlhoeSal"
-import TemperosSeco from "./TemperosSeco"
+import TemperosSecos from "./TemperosSecos"
 import Footer from "./Footer"
 import Swiper from "./Swiper"
 
@@ -11,7 +11,7 @@ export {
     Hero,
     AddedRecently,
     TemperosAlhoeSal,
-    TemperosSeco,
+    TemperosSecos,
     Footer,
     Swiper
 }

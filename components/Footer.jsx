@@ -30,13 +30,13 @@ const Footer = () => {
       </div>
       <div className="font-poppins font-semibold text-[14px] leading-8 grid gap-6 mt-5 text-white ">
         <div>
-          <a href="">FALE CONOSCO</a>
+          <Link href="/temperos-artesanais">TEMPEROS ARTESANAIS</Link>
         </div>
         <div>
-          <a href="">FALE CONOSCO</a>
+          <Link href="/receitas">RECEITAS</Link>
         </div>
         <div>
-          <a href="">FALE CONOSCO</a>
+          <Link href="/sobre-nos">SOBRE NÓS</Link>
         </div>
       </div>
     </section>

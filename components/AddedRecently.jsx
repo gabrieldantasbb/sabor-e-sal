@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/style";
 import Swiper from "./Swiper";
-import { useQuery } from "react-query"
 import { imageUrlBuilder, sanity } from "../lib/sanity"
 
 const query = `
-  *[ _type == 'tempArts' ] { artesanalName, artesanalImage, peso, slug }
+  *[ _type == 'tempArts' ] { title, artesanalImage, peso}
 `;
 
 
 const AddedRecently = () => {
 
-  const { data : temps } = useQuery('tempsList', () => sanity.fetch(query))
+  const [temp, setTemp] = useState(null);
 
-  if (!temps) {
+  useEffect(() => {
+    sanity
+      .fetch(query)
+      .then((data) => setTemp(data))
+      .catch(console.error);
+  }, []);
+
+  if (!temp) {
     return <h1>Loading…</h1>;
   }
 
@@ -30,7 +36,7 @@ const AddedRecently = () => {
         </div>
         <div className="flex">
           <p className={`${styles.paragraph} max-w-md h-[100%] sm:text-lg mt-2`}>
-            Temperos secos, molhados e combinações para saladas.
+            Temperos secos, artesanais e combinações para saladas.
           </p>
         </div>
       </div>
@@ -38,19 +44,19 @@ const AddedRecently = () => {
         <Swiper />
       </div>
       <div className="sm:hidden grid grid-cols-2 gap-4 mt-4">
-        {temps.map(({artesanalName, artesanalImage, peso, slug }) =>
+        {temp.map(({title, artesanalImage, peso }) =>
         (
           <div
-            key={artesanalName}
+            key={title}
             className="w-full flex flex-col py-5 px-4 rounded-xl bg-white drop-shadow-xl"
           >
             <div className="flex bg-[#ECECEC] rounded-xl">
-              <img src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} />
+              <Image height={200} width={200} src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} />
             </div>
             <div className="w-full flex flex-col px-1">
               <div className="mt-4">
                 <h1 className="font-poppins font-bold text-xs min-h-[56px]">
-                  {artesanalName}
+                  Tempero {title}
                 </h1>
               </div>
               <div className="flex">

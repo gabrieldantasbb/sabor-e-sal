@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { temperos } from "../constants";
 import styles from "../styles/style";
 import Link from "next/link";
 
 import { sanity, imageUrlBuilder } from "../lib/sanity";
-import { useQuery } from "react-query";
 
 const query = `
-*[ _typer == 'tempSeco'] { secoName, secoDesc, secoImage, preco }
+*[ _type == 'tempSeco'] { title, description, image, preco }
 `;
 
-const TemperosSeco = () => {
-  const { data: temps } = useQuery("tempList", () => sanity.fetch(query));
+const TemperosSecos = () => {
 
-  if (!temps) {
+  const [temp, setTemp] = useState(null);
+
+  useEffect(() => {
+    sanity
+      .fetch(query)
+      .then((data) => setTemp(data))
+      .catch(console.error);
+  }, [])
+
+  if (!temp) {
     return <h1>Loading…</h1>;
   }
 
@@ -26,7 +32,7 @@ const TemperosSeco = () => {
             <h1
               className={`font-poppins font-semibold sm:text-5xl text-3xl sm:leading-[60px] max-w-[500px] cursor-pointer`}
             >
-              Temperos secos todo tipo de preparo
+              Temperos secos para todo tipo de preparo
             </h1>
           </div>
         </Link>
@@ -41,27 +47,32 @@ const TemperosSeco = () => {
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 mt-6">
-        {temps.map(({ secoName, secoDesc, secoImage, preco }) => (
+        {temp.map(({ title, description, image, preco }) => (
           <div
-            key={secoName}
+            key={title}
             className="w-[100%] rounded-lg bg-[#EAEAEA] flex flex-col sm:flex-row p-4 sm:p-7 items-center"
           >
             <div className="">
-              <img
-                src={imageUrlBuilder.image(secoImage)}
-                height={200}
-                width={200}
+              <Image
+                src={imageUrlBuilder
+                  .width(200)
+                  .height(200)
+                  .image(image)
+                  .url()}
+                  width={200}
+                  height={200}
+                alt={title}
               />
             </div>
             <div className="p-2 sm:ml-9 justify-center">
               <div>
                 <h1 className="font-poppins font-semibold text-lg ">
-                  {secoName}
+                  {title}
                 </h1>
               </div>
               <div className="mt-2">
                 <p className="font-poppins text-[14px] max-w-[450px]">
-                  {secoDesc}
+                  {description}
                 </p>
               </div>
               <div className="flex items-end justify-between">
@@ -72,7 +83,7 @@ const TemperosSeco = () => {
                 </div>
                 <div className="mt-4">
                   <h2 className="font-poppins text-orange text-4xl font-bold">
-                    R$ {preco}0
+                    R$ {preco}
                   </h2>
                 </div>
               </div>
@@ -84,4 +95,4 @@ const TemperosSeco = () => {
   );
 };
 
-export default TemperosSeco;
+export default TemperosSecos;

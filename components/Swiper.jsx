@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,18 +7,24 @@ import { Pagination } from "swiper";
 
 import Image from "next/image";
 
-import { useQuery } from "react-query";
-import { sanity, imageUrlBuilder } from "../lib/sanity"
+import { sanity, imageUrlBuilder } from "../lib/sanity";
 
 const query = `
-*[ _type == 'tempArts'] { artesanalName, artesanalImage, peso }
-`
+*[ _type == 'tempArts'] { title, artesanalImage, peso }
+`;
 
 export default function App() {
+  
+  const [temp, setTemp] = useState(null);
 
-  const { data : temps } = useQuery('tempsList', () => sanity.fetch(query))
-
-  if (!temps) {
+  useEffect(() => {
+    sanity
+      .fetch(query)
+      .then((data) => setTemp(data))
+      .catch(console.error);
+  }, [])
+  
+  if (!temp) {
     return <h1>Loading…</h1>;
   }
 
@@ -33,18 +39,26 @@ export default function App() {
         modules={[Pagination]}
         className="mt-6"
       >
-        {temps.map(({ artesanalName, artesanalImage, peso }) => (
+        {temp.map(({ title, artesanalImage, peso }) => (
           <SwiperSlide
-            key={artesanalName}
+            key={title}
             className="flex flex-col py-5 px-4 rounded-xl bg-white drop-shadow-xl"
           >
             <div className="w-full flex bg-[#ECECEC] rounded-xl">
-            <img src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} />
+              <Image
+                height={200}
+                width={200}
+                src={imageUrlBuilder
+                  .width(200)
+                  .height(200)
+                  .image(artesanalImage)
+                  .url()}
+              />
             </div>
             <div className="w-full flex flex-col px-2">
               <div className="mt-4">
                 <h1 className="font-poppins font-bold text-base min-h-[56px]">
-                  Tempero {artesanalName}
+                  {title}
                 </h1>
               </div>
               <div className="my-2 flex">

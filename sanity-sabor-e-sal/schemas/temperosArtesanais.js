@@ -3,8 +3,8 @@ export default {
     name: 'tempArts',
     type: 'document',
     fields: [{
-        title: 'Artesanal name',
-        name: 'artesanalName',
+        title: 'Title',
+        name: 'title',
         type: 'string',
         validation: Rule => Rule.required()
       },
@@ -22,7 +22,7 @@ export default {
         title: 'Slug',
         type: 'slug',
         options: {
-          source: 'artesanalName',
+          source: 'title',
           maxLength: 90,
         }
       },

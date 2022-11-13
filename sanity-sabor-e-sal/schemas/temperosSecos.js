@@ -3,14 +3,14 @@ export default {
     name: 'tempSeco',
     type: 'document',
     fields: [{
-        title: 'Secos name',
-        name: 'secoName',
+        title: 'Title',
+        name: 'title',
         type: 'string',
         validation: Rule => Rule.required()
       },
       {
         title: 'A little description',
-        name: 'secoDesc',
+        name: 'description',
         type: 'text',
         options: {
           maxLength: 200,
@@ -22,27 +22,27 @@ export default {
         title: 'Slug',
         type: 'slug',
         options: {
-          source: 'secoName',
+          source: 'title',
           maxLength: 90,
         }
       },
       {
-        title: "Seco Image",
-        name: "secoImage",
+        title: "Image",
+        name: "image",
         type: "image",
         options: {
           hotspot: true,
         },
       },
       {
-        name: "preco",
         title: "Preço",
+        name: "preco",
         type: "number",
         validation: Rule => Rule.required()
       },
       {
-        name: "peso",
         title: "Peso",
+        name: "peso",
         type: "number",
         validation: Rule => Rule.required()
       }

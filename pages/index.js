@@ -3,7 +3,7 @@ import {
   Hero,
   AddedRecently,
   TemperosAlhoeSal,
-  TemperosSeco,
+  TemperosSecos,
 } from '../components'
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <Hero />
         <AddedRecently />
         <TemperosAlhoeSal />
-        <TemperosSeco />
+        <TemperosSecos />
       </div>
     </div>
   )
