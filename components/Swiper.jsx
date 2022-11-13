@@ -53,6 +53,7 @@ export default function App() {
                   .height(200)
                   .image(artesanalImage)
                   .url()}
+                  alt={title}
               />
             </div>
             <div className="w-full flex flex-col px-2">

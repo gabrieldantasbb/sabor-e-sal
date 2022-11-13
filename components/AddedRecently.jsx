@@ -51,7 +51,7 @@ const AddedRecently = () => {
             className="w-full flex flex-col py-5 px-4 rounded-xl bg-white drop-shadow-xl"
           >
             <div className="flex bg-[#ECECEC] rounded-xl">
-              <Image height={200} width={200} src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} />
+              <Image height={200} width={200} src={imageUrlBuilder.width(200).height(200).image(artesanalImage).url()} alt={title} />
             </div>
             <div className="w-full flex flex-col px-1">
               <div className="mt-4">
