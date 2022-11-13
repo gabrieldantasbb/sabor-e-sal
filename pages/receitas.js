@@ -8,7 +8,7 @@ const query = `
 *[_type == 'receitas'] { title, receitaDesc, receitaImage}
 `;
 
-const receitas = () => {
+const Receitas = () => {
   const [receitas, setReceitas] = useState(null);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ const receitas = () => {
   );
 };
 
-export default receitas;
+export default Receitas;

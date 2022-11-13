@@ -9,7 +9,7 @@ const query = `
 *[_type == 'tempSeco'] { title, image, description, preco, peso }
 `;
 
-const temperossecos = () => {
+const TemperosSecos = () => {
   const [temp, setTemp] = useState(null);
 
   useEffect(() => {
@@ -76,4 +76,4 @@ const temperossecos = () => {
   );
 };
 
-export default temperossecos;
+export default TemperosSecos;

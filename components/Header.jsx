@@ -28,6 +28,7 @@ const Header = () => {
           onClick={() => setToggle(!toggle)}
           height={40}
           width={40}
+          alt="toggle"
           className="cursor-pointer"
         />
       </div>

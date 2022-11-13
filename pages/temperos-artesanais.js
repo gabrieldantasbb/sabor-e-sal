@@ -9,7 +9,7 @@ const query = `
  *[ _type == 'tempArts'] { title, artesanalDesc, preco, artesanalImage, peso, slug }
   `;
 
-const temperosartesanais = () => {
+const TemperosArtesanais = () => {
   const [temp, setTemp] = useState(null);
 
   useEffect(() => {
@@ -79,4 +79,4 @@ const temperosartesanais = () => {
   );
 };
 
-export default temperosartesanais;
+export default TemperosArtesanais;
