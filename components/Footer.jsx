@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="font-poppins font-semibold text-[14px] leading-8 grid gap-6 mt-5 text-white ">
+      <div className="font-poppins font-semibold text-[14px] leading-8 grid gap-6 mt-5 text-white">
         <div>
           <Link href="/temperos-artesanais">TEMPEROS ARTESANAIS</Link>
         </div>
