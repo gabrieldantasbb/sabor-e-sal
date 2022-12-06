@@ -37,7 +37,7 @@ const TemperosAlhoeSal = () => {
           <p
             className={`${styles.paragraph} max-w-md h-[100%] sm:text-lg mt-2`}
           >
-            A facilidade do tempero caseiro artesanal a base de alho como
+            A facilidade do tempero caseiro artesanal a base de alho, o
             pioneiro da culinária mundial.
           </p>
         </div>
