@@ -83,7 +83,7 @@ const TemperosSecos = () => {
                 </div>
                 <div className="mt-4">
                   <h2 className="font-poppins text-orange text-4xl font-bold">
-                    R$ {preco}
+                    R$ { Number(preco).toLocaleString("es-ES", {minimumFractionDigits: 2}) }
                   </h2>
                 </div>
               </div>

@@ -35,21 +35,21 @@ const TemperosAlhoeSal = () => {
         </Link>
         <div className="flex">
           <p
-            className={`${styles.paragraph} max-w-md h-[100%] sm:text-lg mt-2`}
+            className={`${styles.paragraph} max-w-md h-[100%] sm:text-base mt-2`}
           >
             A facilidade do tempero caseiro artesanal a base de alho, o
             pioneiro da culinária mundial.
           </p>
         </div>
       </div>
-      <div className="grid gap-4 mt-6">
+      <div className="flex flex-wrap gap-4">
         {temp.map(
           ({ title, artesanalDesc, preco, artesanalImage }) => (
             <div
               key={title}
-              className="w-[100%] rounded-lg bg-[#EAEAEA] flex flex-col sm:flex-row p-4 sm:p-9 items-center justify-center"
+              className="w-fit p-2 bg-[#EAEAEA] rounded-lg flex flex-col align-center items-center justify-center"
             >
-              <div className="h-[200px] w-[200px] relative">
+              <div key={title} className="h-[200px] w-[200px] relative">
                 <Image
                   layout="fill"
                   src={imageUrlBuilder
@@ -60,27 +60,22 @@ const TemperosAlhoeSal = () => {
                   alt={title}
                 />
               </div>
-              <div className="p-2 sm:ml-9 justify-center">
+              <div className="sm:ml-9 justify-center">
                 <div>
-                  <h1 className="font-poppins font-semibold text-lg ">
+                  <h1 className="font-poppins font-semibold text-base ">
                     {title}
                   </h1>
                 </div>
                 <div className="mt-2">
-                  <p className="font-poppins text-[14px] max-w-[450px] text-justify">
+                  <p className="font-poppins text-[12px] max-w-[250px] text-justify">
                     {artesanalDesc}
                   </p>
                 </div>
                 <div className="mt-4">
-                  <h2 className="font-poppins text-orange text-4xl font-bold">
-                    R$ {preco}0
+                  <h2 className="font-poppins text-orange text-2xl font-bold">
+                    R$ { Number(preco).toLocaleString("es-ES", {minimumFractionDigits: 2}) }
                   </h2>
                 </div>
-              </div>
-              <div className="">
-                <button className="py-2 px-4 rounded-md bg-orange text-white font-regular font-poppins text-[12px] ">
-                  View Details
-                </button>
               </div>
             </div>
           )

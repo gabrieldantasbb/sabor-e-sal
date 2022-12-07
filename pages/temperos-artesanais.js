@@ -65,7 +65,7 @@ const TemperosArtesanais = () => {
 
               <div className="flex justify-between p-2 items-center">
                 <div className="font-poppins font-semibold text-[14px] sm:text-xl flex justify-center">
-                  <p>R$ {preco}</p>
+                  <p>R$ { Number(preco).toLocaleString("es-ES", {minimumFractionDigits: 2}) }</p>
                 </div>
                 <div className="bg-orange rounded-full text-white p-3">
                   <BsCart4 className="fill-white h-4 w-4 sm:h-6 sm:w-6" />
