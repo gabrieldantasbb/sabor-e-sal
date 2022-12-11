@@ -10,7 +10,6 @@ const query = `
 `;
 
 const TemperosSecos = () => {
-
   const [temp, setTemp] = useState(null);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ const TemperosSecos = () => {
       .fetch(query)
       .then((data) => setTemp(data))
       .catch(console.error);
-  }, [])
+  }, []);
 
   if (!temp) {
     return <h1>Loading…</h1>;
@@ -46,44 +45,32 @@ const TemperosSecos = () => {
           </p>
         </div>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 mt-6">
+      <div className="grid grid-cols-2 sm:flex flex-wrap gap-4 justify-center mt-5">
         {temp.map(({ title, description, image, preco }) => (
           <div
             key={title}
-            className="w-[100%] rounded-lg bg-[#EAEAEA] flex flex-col sm:flex-row p-4 sm:p-7 items-center"
+            className="max-w-full sm:w-[260px] bg-[#EAEAEA] rounded-lg flex flex-col items-center p-2"
           >
-            <div className="">
+            <div className="flex h-[100px] w-[100px] sm:h-[200px] sm:w-[200px] relative">
               <Image
-                src={imageUrlBuilder
-                  .width(200)
-                  .height(200)
-                  .image(image)
-                  .url()}
-                  width={200}
-                  height={200}
+                layout="fill"
+                src={imageUrlBuilder.width(200).height(200).image(image).url()}
                 alt={title}
               />
             </div>
-            <div className="p-2 sm:ml-9 justify-center">
+            <div className="flex flex-col items-center">
               <div>
-                <h1 className="font-poppins font-semibold text-lg ">
+                <h1 className="font-poppins font-semibold text-[12px] sm:text-base text-center w-[135px] sm:w-[200px]">
                   {title}
                 </h1>
               </div>
-              <div className="mt-2">
-                <p className="font-poppins text-[14px] max-w-[450px]">
-                  {description}
-                </p>
-              </div>
               <div className="flex items-end justify-between">
                 <div className="">
-                  <button className="py-1 px-3 rounded-md bg-orange text-white font-regular font-poppins text-[12px] ">
-                    View Details
-                  </button>
-                </div>
-                <div className="mt-4">
-                  <h2 className="font-poppins text-orange text-4xl font-bold">
-                    R$ { Number(preco).toLocaleString("es-ES", {minimumFractionDigits: 2}) }
+                  <h2 className="font-poppins text-orange text-sm sm:text-xl font-regular">
+                    R${" "}
+                    {Number(preco).toLocaleString("es-ES", {
+                      minimumFractionDigits: 2,
+                    })}
                   </h2>
                 </div>
               </div>

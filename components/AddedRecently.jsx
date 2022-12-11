@@ -56,18 +56,13 @@ const AddedRecently = () => {
             <div className="w-full flex flex-col px-1">
               <div className="mt-4">
                 <h1 className="font-poppins font-bold text-xs min-h-[56px]">
-                  Tempero {title}
+                  {title}
                 </h1>
               </div>
               <div className="flex">
                 <p className="font-inter font-semibold text-grey text-[11px]">
-                  Peso:{peso}
+                  Peso: {peso}
                 </p>
-              </div>
-              <div className="flex justify-end align-bottom mt-2">
-                <button className="py-1 px-2 rounded-md border-solid border-2 border-orange text-orange font-regular font-poppins text-[10px]">
-                  View Details
-                </button>
               </div>
             </div>
           </div>

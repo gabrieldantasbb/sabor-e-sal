@@ -52,7 +52,7 @@ const Receitas = () => {
             </div>
             <div>
               <div>
-                <h1 className="font-poppins font-semibol text-base">receita</h1>
+                <h1 className="font-poppins font-semibol text-base">{title}</h1>
               </div>
               <div>
                 <p className="font-poppins text-[12px]">{receitaDesc}</p>

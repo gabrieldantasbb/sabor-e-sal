@@ -37,49 +37,49 @@ const TemperosAlhoeSal = () => {
           <p
             className={`${styles.paragraph} max-w-md h-[100%] sm:text-base mt-2`}
           >
-            A facilidade do tempero caseiro artesanal a base de alho, o
-            pioneiro da culinária mundial.
+            A facilidade do tempero caseiro artesanal a base de alho, o pioneiro
+            da culinária mundial.
           </p>
         </div>
       </div>
-      <div className="flex flex-wrap gap-4">
-        {temp.map(
-          ({ title, artesanalDesc, preco, artesanalImage }) => (
+      <div className="grid grid-cols-2 sm:flex flex-wrap gap-4 justify-center mt-5">
+        {temp.map(({ title, artesanalDesc, preco, artesanalImage }) => (
+          <div
+            key={title}
+            className="max-w-full sm:w-[260px] bg-[#EAEAEA] rounded-lg flex flex-col items-center justify-between p-2"
+          >
             <div
               key={title}
-              className="w-fit p-2 bg-[#EAEAEA] rounded-lg flex flex-col align-center items-center justify-center"
+              className="flex h-[100px] w-[100px] sm:h-[200px] sm:w-[200px] relative"
             >
-              <div key={title} className="h-[200px] w-[200px] relative">
-                <Image
-                  layout="fill"
-                  src={imageUrlBuilder
-                    .width(200)
-                    .height(200)
-                    .image(artesanalImage)
-                    .url()}
-                  alt={title}
-                />
+              <Image
+                layout="fill"
+                src={imageUrlBuilder
+                  .width(200)
+                  .height(200)
+                  .image(artesanalImage)
+                  .url()}
+                alt={title}
+                className=""
+              />
+            </div>
+            <div className="flex flex-col items-center">
+              <div>
+                <h1 className="font-poppins font-semibold text-[12px] sm:text-base text-center w-[135px] sm:w-[200px]">
+                  {title}
+                </h1>
               </div>
-              <div className="sm:ml-9 justify-center">
-                <div>
-                  <h1 className="font-poppins font-semibold text-base ">
-                    {title}
-                  </h1>
-                </div>
-                <div className="mt-2">
-                  <p className="font-poppins text-[12px] max-w-[250px] text-justify">
-                    {artesanalDesc}
-                  </p>
-                </div>
-                <div className="mt-4">
-                  <h2 className="font-poppins text-orange text-2xl font-bold">
-                    R$ { Number(preco).toLocaleString("es-ES", {minimumFractionDigits: 2}) }
-                  </h2>
-                </div>
+              <div className="mt-4">
+                <h2 className="font-poppins text-orange text-sm sm:text-xl font-regular">
+                  R${" "}
+                  {Number(preco).toLocaleString("es-ES", {
+                    minimumFractionDigits: 2,
+                  })}
+                </h2>
               </div>
             </div>
-          )
-        )}
+          </div>
+        ))}
       </div>
     </section>
   );

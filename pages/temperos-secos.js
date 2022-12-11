@@ -39,7 +39,7 @@ const TemperosSecos = () => {
         {temp?.map(({ title, image, description, preco, peso }) => (
           <div
             key={title}
-            className="border-2 border-solid p-2 sm:p-4 max-w-[300px] rounded-xl shadow-sm"
+            className="flex flex-col justify-between border-2 border-solid p-2 sm:p-4 max-w-[300px] rounded-xl shadow-sm"
           >
             <div className="bg-[#ECECEC] rounded-xl">
               <Image
@@ -53,16 +53,10 @@ const TemperosSecos = () => {
               <div className="font-poppins font-semibold text-[12px] sm:text-base mb-1 mt-2 sm:mt-3">
                 <h2>{title}</h2>
               </div>
-              <div className="font-inter font-semibold text-sm text-[#ececec] flex justify-end">
-                <p>{peso}</p>
-              </div>
-              <div className="font-poppins text-[11px] sm:text-[12px] text-right mt-1">
-                <p>{description}</p>
-              </div>
             </div>
 
             <div className="flex justify-between p-2 items-center">
-              <div className="font-poppins font-semibold text-[14px] sm:text-xl flex justify-center">
+              <div className="font-poppins font-regular text-[14px] sm:text-base flex justify-center">
                 <p>R$ { Number(preco).toLocaleString("es-ES", {minimumFractionDigits: 2}) }</p>
               </div>
               <div className="bg-orange rounded-full text-white p-3">

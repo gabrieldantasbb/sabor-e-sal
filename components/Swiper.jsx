@@ -67,11 +67,6 @@ export default function App() {
                   Peso: {peso}
                 </p>
               </div>
-              <div className="flex justify-end align-bottom mt-2">
-                <button className="py-2 px-3 rounded-md border-solid text-[12px] border-2 border-orange text-orange font-egular font-poppins">
-                  View Details
-                </button>
-              </div>
             </div>
           </SwiperSlide>
         ))}
