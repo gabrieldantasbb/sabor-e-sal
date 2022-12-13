@@ -38,11 +38,15 @@ const Receitas = () => {
           Não há limites para o seu uso.
         </h2>
       </div>
-      {receitas.map(({ title, receitaDesc, receitaImage }) => (
-        <div key={title} className="flex flex-col sm:flex-row">
-          <div className="bg-[#ECECEC] rounded-lg p-4">
+      <div className="flex flex-col sm:flex-row">
+        {receitas.map(({ title, receitaDesc, receitaImage }) => (
+          <div key={title} className=" bg-[#ECECEC] rounded-lg p-4">
+            <div>
+              <h3>{title}</h3>
+            </div>
             <div className="relative">
-              <Image className="rounded-lg"
+              <Image
+                className="rounded-lg"
                 width="600px"
                 height={450}
                 layout="intrinsic"
@@ -60,8 +64,8 @@ const Receitas = () => {
               <div>Ler mais</div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };
