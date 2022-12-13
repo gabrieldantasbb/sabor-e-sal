@@ -4,7 +4,7 @@ export default {
     type: 'document',
     fields: [{
         title: 'Titutlo da receita',
-        name: 'titulo',
+        name: 'title',
         type: 'string',
         validation: Rule => Rule.required()
       },
@@ -22,7 +22,7 @@ export default {
         title: 'Slug',
         type: 'slug',
         options: {
-          source: 'titulo',
+          source: 'title',
           maxLength: 90,
         }
       },
