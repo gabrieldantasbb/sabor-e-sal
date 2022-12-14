@@ -43,32 +43,30 @@ const Receitas = () => {
           Não há limites para o seu uso.
         </h2>
       </div>
-      <div className="flex flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row w-full">
         {receitas.map(({ title, receitaDesc, receitaImage }) => (
           <div key={title} className="w-full rounded-lg p-4 flex flex-col">
             <div>
-              <h3 className="flex font-poppins font-bold text-xl sm:text-3xl max-w-[65%]">
+              <h3 className="flex font-poppins font-bold text-base sm:text-3xl">
                 {title}
               </h3>
             </div>
-            <div className="flex flex-col sm:flex-row w-full">
+            <div className="flex flex-col gap-3 sm:gap-6 sm:flex-row w-full sm:mt-3 mt-2">
               <div className="">
                 <Image
                   className="rounded-lg"
-                  width={700}
-                  height={450}
+                  width={600}
+                  height={350}
                   layout="intrinsic"
                   src={imageUrlBuilder.image(receitaImage).url()}
                   alt={title}
                 />
               </div>
-              <div className="flex">
-                <div className="ustify-end">
-                  <p className="font-poppins text-[12px] sm:max-w-[40%]">
+                <div className="sm:w-[40%]">
+                  <p className="font-poppins text-[12px] text-center sm:text-left">
                     {receitaDesc}
                   </p>
                 </div>
-              </div>
             </div>
           </div>
         ))}
